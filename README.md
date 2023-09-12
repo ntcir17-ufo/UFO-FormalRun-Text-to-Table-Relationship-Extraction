@@ -1,6 +1,7 @@
 # NTCIR-17 UFO Text to Table Relationship Extraction サブタスク（Formal Run）
 
 ## 更新情報
+- (2023/09/12) Gold Standardデータを公開しました。(`ufo_ttre_gs_20230530.json`)
 
 # データセットについて
 - TTRE の Formal Run では、Dry Run と同じデータを使用します。
