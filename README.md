@@ -1,6 +1,7 @@
 # NTCIR-17 UFO Text to Table Relationship Extraction サブタスク（Formal Run）
 
 ## 更新情報
+- (2023/12/14) READMEの誤りの修正
 - (2023/09/12) Gold Standardデータを公開しました。(`ufo_ttre_gs_20230530.json`)
 
 # データセットについて
@@ -15,10 +16,10 @@ https://sites.google.com/view/ntcir17-ufo/subtasks/text-to-table-relationship-ex
 
 このリポジトリには以下のファイルが含まれます。
 
-- `trainig/**/*.ttre.html`
+- `training/**/*.ttre.html`
   - 各企業が発行した有価証券報告書に情報を追加したもので，trainingデータとして使用します。
   - 企業ごとにディレクトリ分けされています。
-- `test/*.ttre.html`
+- `test/**/*.ttre.html`
   - 各企業が発行した有価証券報告書に情報を追加したもので，testデータとして使用します。
 - `ttre_sample_output.py`
   - サンプルの推論スクリプトです。
@@ -42,10 +43,10 @@ https://sites.google.com/view/ntcir17-ufo/subtasks/text-to-table-relationship-ex
 
 `training/**/*.ttre.html`は，各企業が発行した有価証券報告書に以下の修正を加えたものです。
 
-- `table`タグに `data-mblink-table-id`属性を追加。
-  - `data-mblink-table-id`属性はテーブルを一意に識別する文字列で， `[書類管理番号]-[項目連番]-tab[テーブル連番]`の形式です。
-- 各table内の `th`タグ， `td`タグに `data-mblink-cell-id`属性を追加。
-  - `data-mblink-cell-id`属性はセルを一意に識別する文字列（セルID）で， `[書類管理番号]-[項目連番]-tab[テーブル連番]-r[行]c[列]` の形式です。
+- `table`タグに `data-ttre-table-id`属性を追加。
+  - `data-ttre-table-id`属性はテーブルを一意に識別する文字列で， `[書類管理番号]-[項目連番]-tab[テーブル連番]`の形式です。
+- 各table内の `th`タグ， `td`タグに `data-ttre-cell-id`属性を追加。
+  - `data-ttre-cell-id`属性はセルを一意に識別する文字列（セルID）で， `[書類管理番号]-[項目連番]-tab[テーブル連番]-r[行]c[列]` の形式です。
 - `p`タグに `data-ttre-sentence-id`属性を追加。
   - `data-ttre-sentence-id`属性は段落を一意に識別する文字列で， `[書類管理番号]-[項目連番]-sent[段落連番]`の形式です。
 - 各段落内の0個以上のフレーズに `mark`タグを追加。
@@ -57,7 +58,7 @@ https://sites.google.com/view/ntcir17-ufo/subtasks/text-to-table-relationship-ex
 
 ### testデータ
 
-`test/*.html`もtrainingデータ同様，各企業が発行した有価証券報告書に以下の修正を加えたものですが，以下の点が異なります。
+`test/**/*.html`もtrainingデータ同様，各企業が発行した有価証券報告書に以下の修正を加えたものですが，以下の点が異なります。
 
 - `mark`タグにおける3つのリンクセルに関する属性 `data-ttre-name-cell-ids, data-ttre-value-cell-ids, data-ttre-etc-cell-ids`の値を空白にしています。
 
